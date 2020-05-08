@@ -1,0 +1,283 @@
+{
+  "name": "blockscope-highlighter",
+  "displayName": "blockscope-highlighter",
+  "description": "",
+  "version": "0.3.0",
+  "publisher": "tmgyn",
+  "engines": {
+    "vscode": "^1.44.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Scope Highlighter configuration",
+      "properties": {
+        "blockscope-highlighter.bracket": {
+          "type": "Bracket",
+          "description": "Brackets which are used to delimit the scope selection.",
+          "default": {
+            "start": "{",
+            "end": "}"
+          }
+        },
+        "blockscope-highlighter.rgba": {
+          "type": "RGBA",
+          "description": "RGBA which are used to color the scope selection.",
+          "default": {
+            "red": 0,
+            "green": 100,
+            "blue": 150,
+            "alpha": 0.05
+          }
+        },
+        "blockscope-highlighter.syntax": {
+          "type": "CommenSyntax[]",
+          "description": "Syntax wich are used to define comment for the identifier of the language associated with this document.",
+          "default": [
+            {
+              "languageId": [
+                "asciidoc"
+              ],
+              "singleline": "//",
+              "multilineStart": "////",
+              "multilineEnd": "////"
+            },
+            {
+              "languageId": [
+                "apex",
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+                "al",
+                "c",
+                "cpp",
+                "csharp",
+                "dart",
+                "flax",
+                "fsharp",
+                "go",
+                "groovy",
+                "haxe",
+                "java",
+                "jsonc",
+                "kotlin",
+                "less",
+                "pascal",
+                "objectpascal",
+                "php",
+                "rust",
+                "scala",
+                "scss",
+                "stylus",
+                "swift",
+                "verilog",
+                "vue"
+              ],
+              "singleline": "//",
+              "multilineStart": "/*",
+              "multilineEnd": "*/"
+            },
+            {
+              "languageId": [
+                "css"
+              ],
+              "singleline": "/*",
+              "multilineStart": "/*",
+              "multilineEnd": "*/"
+            },
+            {
+              "languageId": [
+                "coffeescript",
+                "dockerfile",
+                "gdscript",
+                "graphql",
+                "julia",
+                "makefile",
+                "perl",
+                "perl6",
+                "puppet",
+                "r",
+                "ruby",
+                "shellscript",
+                "tcl",
+                "yaml",
+                "tcl"
+              ],
+              "singleline": "#"
+            },
+            {
+              "languageId": [
+                "elixir",
+                "python"
+              ],
+              "singleline": "#",
+              "multilineStart": "\"\"\"",
+              "multilineEnd": "\"\"\""
+            },
+            {
+              "languageId": [
+                "nim"
+              ],
+              "singleline": "#",
+              "multilineStart": "#[",
+              "multilineEnd": "]#"
+            },
+            {
+              "languageId": [
+                "powershell"
+              ],
+              "singleline": "#",
+              "multilineStart": "<#",
+              "multilineEnd": "#>"
+            },
+            {
+              "languageId": [
+                "ada",
+                "hive-sql",
+                "pig",
+                "plsql",
+                "sql"
+              ],
+              "singleline": "--"
+            },
+            {
+              "languageId": [
+                "lua"
+              ],
+              "singleline": "--",
+              "multilineStart": "--[[",
+              "multilineEnd": "]]"
+            },
+            {
+              "languageId": [
+                "elm",
+                "haskell"
+              ],
+              "singleline": "--",
+              "multilineStart": "{-",
+              "multilineEnd": "-}"
+            },
+            {
+              "languageId": [
+                "vb",
+                "diagram"
+              ],
+              "singleline": "'"
+            },
+            {
+              "languageId": [
+                "bibtex",
+                "erlang",
+                "latex",
+                "matlab"
+              ],
+              "singleline": "%"
+            },
+            {
+              "languageId": [
+                "clojure",
+                "racket",
+                "lisp"
+              ],
+              "singleline": ";"
+            },
+            {
+              "languageId": [
+                "terraform"
+              ],
+              "singleline": "#",
+              "multilineStart": "/*",
+              "multilineEnd": "*/"
+            },
+            {
+              "languageId": [
+                "COBOL"
+              ],
+              "singleline": "*>"
+            },
+            {
+              "languageId": [
+                "fortran-modern"
+              ],
+              "singleline": "c"
+            },
+            {
+              "languageId": [
+                "SAS",
+                "stata"
+              ],
+              "singleline": "*",
+              "multilineStart": "/*",
+              "multilineEnd": "*/"
+            },
+            {
+              "languageId": [
+                "html",
+                "markdown"
+              ],
+              "singleline": "<!--",
+              "multilineStart": "<!--",
+              "multilineEnd": "-->"
+            },
+            {
+              "languageId": [
+                "twig"
+              ],
+              "singleline": "{#",
+              "multilineStart": "{#",
+              "multilineEnd": "#}"
+            },
+            {
+              "languageId": [
+                "genstat"
+              ],
+              "singleline": "\\",
+              "multilineStart": "\"",
+              "multilineEnd": "\""
+            },
+            {
+              "languageId": [
+                "cfml"
+              ],
+              "singleline": "<!---",
+              "multilineStart": "<!---",
+              "multilineEnd": "--->"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmgyn/blockscope-highlighter"
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.44.0",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.1.1",
+    "typescript": "^3.8.3",
+    "vscode-test": "^1.3.0"
+  }
+}
